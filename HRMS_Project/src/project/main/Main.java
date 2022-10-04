@@ -3,6 +3,9 @@ package project.main;
 import java.util.Scanner;
 
 import project.admin.Admin;
+import project.dao.EmplApplyForLeaves;
+import project.useCases.EmployeeLoginUseCase;
+import project.useCases.UpdateProfileEmpUseCase;
 
 public class Main {
 
@@ -10,38 +13,72 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("...............Welcome to Human Resource Management System...............");
+		System.out.println("====================================================");
+		System.out.println("Welcome to Human Resource Management System ");
+		System.out.println("====================================================");
 		
-		System.out.println("\n1. Admin \n2. Employee \n");
+		boolean flag = false;
 		
-		System.out.println("Please enter one option to continue: \n");
-		int choise = sc.nextInt();
-		
-		if(choise==1 || choise == 2){
-			switch(choise) {
-			case 1:
-				System.out.println("Welcome to Admin pannel");
-				
-				Admin admin = new Admin();
-				
-				boolean Adminflag = admin.AdminLogin();
-				
-				if(Adminflag) {
-					System.out.println("Login sucessfull..!");
-					admin.adminPannel();
-				}else {
-					System.out.println("Wrong Userid or Password....!");
+		while(flag==false) {
+			
+			System.out.println("\n"
+					+ "1. Admin \n"
+					+ "2. Employee \n"
+					+ "3. Exit");
+			System.out.println("\nPlease enter one option to continue: ");
+			int choise = sc.nextInt();
+			
+			if(choise==1 || choise == 2 || choise == 3){
+				flag = true;
+				switch(choise) {
+				case 1:
+					System.out.println("====================================================");
+					System.out.println("\nWelcome to Admin pannel");
+					
+					Admin admin = new Admin();
+					
+					boolean Adminflag = admin.AdminLogin();
+					
+					if(Adminflag) {
+						System.out.println("Login sucessfull..!");
+						admin.adminPannel();
+					}else {
+						System.out.println("Wrong Userid or Password....!");
+					}
+					break;
+					
+				case 2:
+					System.out.println("====================================================");
+					System.out.println("\nWelcome to Employee pannel\n");
+					EmployeeLoginUseCase empLogin = new EmployeeLoginUseCase();
+					int id = empLogin.employeeLogin();
+					System.out.println("\n"
+							+ "1. Apply for leave \n"
+							+ "2. Profile update \n"
+							+ "3. Exit \n");
+					
+					System.out.println("Please enter one option");
+					int option = sc.nextInt();
+					if(option==1){
+						String msg = new EmplApplyForLeaves().applyForLeaves(id);
+						System.out.println(msg);
+					}else if(option==2) {
+						new UpdateProfileEmpUseCase().updateEmpProfile(id);
+					}else if(option==3) {
+						System.out.println("Thank You....!");
+						return;
+					}
+					
+					break;
+				case 3:
+					System.out.println("Thank you......!");
+					return;
 				}
-				break;
-				
-			case 2:
-				
-				System.out.println("Welcome to Employee pannel");
-				break;
+			}else {
+				System.out.println("Wrong input");
+				flag = false;
 			}
-		}else {
-			System.out.println("Wrong input");
-		}
+		}	
 	}
 
 }

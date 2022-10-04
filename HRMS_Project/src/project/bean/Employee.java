@@ -8,13 +8,13 @@ public class Employee {
 	private int salary;
 	private String email;
 	private String mobile;
-	private String dept;
+	private String passwd;
 	
 	public Employee() {
 		
 	}
 
-	public Employee(int id, String fName, String lName, int salary, String email, String mobile, String dept) {
+	public Employee(int id, String fName, String lName, int salary, String email, String mobile,String passwd) {
 		super();
 		Id = id;
 		this.fName = fName;
@@ -22,7 +22,7 @@ public class Employee {
 		this.salary = salary;
 		this.email = email;
 		this.mobile = mobile;
-		this.dept = dept;
+		this.passwd = passwd;
 	}
 
 	public int getId() {
@@ -73,19 +73,19 @@ public class Employee {
 		this.mobile = mobile;
 	}
 
-	public String getDept() {
-		return dept;
+	public String getPasswd() {
+		return passwd;
 	}
 
-	public void setDept(String dept) {
-		this.dept = dept;
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
 	}
 
 	@Override
 	public String toString() {
 		return "Employee [Id=" + Id + ", fName=" + fName + ", lName=" + lName + ", salary=" + salary + ", email="
-				+ email + ", mobile=" + mobile + ", dept=" + dept + "]";
+				+ email + ", mobile=" + mobile + ", passwd=" + passwd + "]";
 	}
 	
-	
+
 }

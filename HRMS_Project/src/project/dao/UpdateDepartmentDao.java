@@ -27,7 +27,7 @@ public class UpdateDepartmentDao{
 				int x = ps.executeUpdate();
 				
 				if(x>0) {
-					msg = "Department added Sucessfully";
+					msg = "Department Updated Sucessfully...!";
 					flag = true;
 				}else {
 					flag = false;
@@ -58,7 +58,7 @@ public class UpdateDepartmentDao{
 				int x = ps.executeUpdate();
 				
 				if(x>0) {
-					msg = "Department name updated sucessfully...!";
+					msg = "Department Updated sucessfully...!";
 					flag = true;
 				}else {
 					flag = false;

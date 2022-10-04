@@ -20,9 +20,6 @@ public class RegisterEmplUseCase1 {
 		String email = sc.next();
 		System.out.println("Enter mobile number: ");
 		String mobile = sc.next();
-		System.out.println("Enter department: ");
-		String dname = sc.next();
-		
 		EmployeeDao dao = new EmployeeDaoImpl();
 		
 		Employee employee = new Employee();
@@ -31,12 +28,12 @@ public class RegisterEmplUseCase1 {
 		employee.setSalary(salary);
 		employee.setEmail(email);
 		employee.setMobile(mobile);
-		employee.setDept(dname);
-		
 		
 		String result = dao.registerEmp(employee);
 		
 		System.out.println(result);
+		System.out.println("User id: "+employee.getEmail());
+		System.out.println("User Password: "+(employee.getfName()+employee.getlName()).toLowerCase());
 	}
 
 }

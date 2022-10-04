@@ -10,6 +10,7 @@ public class UpdateProfileEmpUseCase {
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("------------------------------------");
+		
 		System.out.println("\n"
 				+ "1. Update name \n"
 				+ "2. Update email \n"
@@ -23,6 +24,7 @@ public class UpdateProfileEmpUseCase {
 		case 1:
 			String name = new UpdateEmpProfileDao().updateName(id);
 			System.out.println(name);
+			
 			break;
 		case 2:
 			String email = new UpdateEmpProfileDao().updateEmail(id);

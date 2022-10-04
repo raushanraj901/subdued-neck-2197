@@ -17,10 +17,10 @@ public class GetAllEmployeeDataUseCase {
 			employees.forEach(s-> {
 				System.out.println("Employee Id: "+ s.getId());
 				System.out.println("Employee name: "+ s.getfName()+" "+s.getlName());
-				System.out.println("Employee Id: "+ s.getSalary());
-				System.out.println("Employee Id: "+ s.getEmail());
-				System.out.println("Employee Id: "+ s.getMobile());
-				System.out.println("Employee Id: "+ s.getPasswd());
+				System.out.println("Employee Salary: "+ s.getSalary());
+				System.out.println("Employee Email: "+ s.getEmail());
+				System.out.println("Employee Mobile: "+ s.getMobile());
+				System.out.println("Employee Password: "+ s.getPasswd());
 				System.out.println("----------------------------------- \n");
 			}); 
 		} catch (EmployeeException e) {
